@@ -3,26 +3,36 @@ html {
 }
 
 body {
-    margin: 3%;
+    margin: 1rem;
     color: #b122b1;
-    background-color: #474798;
-    /* background-color: yellow; */
-    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    background: #474798;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 1rem;
 }
 
 h2 {
     margin: 0;
-    font-size: 16rem;
+    font-size: 10rem;
 }
 
-h3 {
-    font-size: 1.5rem;
-    margin: 1rem;
-}
+@media (min-width: 576px) {
+    h1 {
+        font-size: 3rem;
+        margin: 2rem;
+    }
+    
+    h2 {
+        font-size: 16rem;
+    }
 
-h4 {
-    font-size: 0.8rem;
+    p {
+        font-size: 1.2rem
+    }
 }
 
 .weekcal {
@@ -35,8 +45,4 @@ h4 {
 .data {
     display: block;
     border: 1px solid;
-}
-
-footer {
-    font-size: 0.8rem;
 }
