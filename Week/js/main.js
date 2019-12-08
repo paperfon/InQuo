@@ -1,4 +1,3 @@
-// document.getElementById("year").innerHTML = moment().format("Y");
 document.getElementById("week-number").textContent = moment().isoWeek();
 
 let startDay = moment().startOf('isoWeek');
@@ -12,12 +11,21 @@ let countDaysOfWeek = function(startDay, endDay) {
 
   do {
     dates.push(firstDate.toDate());
-    console.log(firstDate.toDate());
-    var newElement = document.createElement('div');
-    newElement.id = moment(firstDate.toDate()).format("YYYY-MM-DD");
-    newElement.className = "weekDays";
-    newElement.textContent = moment(firstDate.toDate()).format("dddd, MMMM Do YYYY");
-    document.getElementById("week-days").appendChild(newElement);
+
+    var dateElement = document.createElement('p');
+    dateElement.id = moment(firstDate.toDate()).format("YYYY-MM-DD");
+    dateElement.textContent = moment(firstDate.toDate()).format("DD MMM YYYY");
+    
+    var dayElement = document.createElement('span');
+    dayElement.className = moment(firstDate.toDate()).format("dddd");
+    dayElement.textContent = moment(firstDate.toDate()).format("dddd");
+
+    var spacer = document.createElement('br');
+
+    dayElement.appendChild(spacer);
+    dateElement.insertBefore(dayElement, dateElement.firstChild);
+
+    document.getElementById("week-days").appendChild(dateElement);
   } while (firstDate.add(1, 'days').diff(lastDate) <= 0);
 
   return dates;
